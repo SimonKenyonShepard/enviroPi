@@ -1,0 +1,17 @@
+{
+  "name": "ccs811onlynode",
+  "version": "1.0.0",
+  "description": "Node application - CCS811 Raspberry Pi for reading eCO2 and TVOC",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Georgian Stan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "i2c-bus": "^1.2.4",
+    "socket.io": "^2.0.4"
+  }
+}
