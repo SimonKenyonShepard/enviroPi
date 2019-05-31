@@ -3,7 +3,7 @@ const I2cBus = require('i2c-bus'),
       BME280 = require('./BME280.js'),
       TelemetryMonitor = require ('./telemetryMonitor.js');
 
-const i2c1 = I2cBus.openSync(1);
+let i2c1 = I2cBus.openSync(1);
 
 let sensorCCS811 = new CCS811(),
     sensorBME280 = new BME280();
