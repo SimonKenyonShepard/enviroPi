@@ -3,6 +3,9 @@
 const clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString,
       Message = require('azure-iot-device').Message;
 
+const azureMessagePerDayLimit = 8000,
+      telemetryStoreTimeout = Math.ceil(60/(azureMessagePerDayLimit/24/60)*1000);
+
 exports = module.exports = function(sensorCCS811, sensorBME280){
 
   const connStr = 'HostName=SKS-Environment.azure-devices.net;DeviceId=EnviroPi;SharedAccessKey=koHVWSqRkPdLNY7wt99NNasT6wgVCH4JuvdhTg8yzMA=',
@@ -32,7 +35,7 @@ exports = module.exports = function(sensorCCS811, sensorBME280){
             });
      
           
-        }, 12000);
+        }, telemetryStoreTimeout);
       }
     }
   );
