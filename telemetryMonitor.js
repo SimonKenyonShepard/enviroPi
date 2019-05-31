@@ -32,7 +32,7 @@ exports = module.exports = function(sensorCCS811, sensorBME280){
             });
      
           
-        }, 1000);
+        }, 12000);
       }
     }
   );
