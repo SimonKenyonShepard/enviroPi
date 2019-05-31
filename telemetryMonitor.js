@@ -1,7 +1,7 @@
 'use strict';
  
-import { clientFromConnectionString } from 'azure-iot-device-amqp';
-import { Message } from 'azure-iot-device';
+const clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString,
+      Message = require('azure-iot-device').Message;
 
 exports = module.exports = function(sensorCCS811, sensorBME280){
 

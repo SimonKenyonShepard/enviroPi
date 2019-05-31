@@ -1,7 +1,7 @@
-import I2cBus from 'i2c-bus';
-import CCS811 from './CCS811.js';
-import BME280 from './BME280.js';
-import TelemetryMonitor from './telemetryMonitor.js';
+const I2cBus = require('i2c-bus'),
+      CCS811 = require('./CCS811.js'),
+      BME280 = require('./BME280.js'),
+      TelemetryMonitor = require ('./telemetryMonitor.js');
 
 const i2c1 = I2cBus.openSync(1);
 
