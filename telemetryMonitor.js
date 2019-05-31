@@ -25,7 +25,7 @@ exports = module.exports = function(sensorCCS811, sensorBME280){
               var JSONdata = JSON.stringify(combinedData);
               var telemetryMessage = new Message(JSONdata);
               console.log("Telemetry sent: " + telemetryMessage.getData());
-              //client.sendEvent(telemetryMessage, (data) => console.log(data));
+              client.sendEvent(telemetryMessage, (data) => console.log(data));
             })
             .catch((err) => {
               console.log(`BME280 read error: ${err}`);
