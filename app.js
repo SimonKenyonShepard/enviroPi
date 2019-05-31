@@ -34,17 +34,9 @@ process.on('exit', exitHandler.bind(null,{cleanup:true}));
 process.on('SIGINT', exitHandler.bind(null, {exit:true}));
 
   sensorBME280.init()
-  .then((i2c1, sensorCCS811, sensorBME280) => {
+  .then(() => {
     console.log('BME280 initialization succeeded');
     try{
-
-      sensorCCS811.check_id();         //check if the sensor is a CCS811
-
-      sensorCCS811.check_app_valid();  //check if application is valid
-
-      sensorCCS811.start();            //change from boot mode in application mode
-
-      sensorCCS811.set_driver_mode(1); //set driver mode to one second(1) or ten seconds(10)
 
       const sensorDataMonitor = new TelemetryMonitor(sensorCCS811, sensorBME280);
 
