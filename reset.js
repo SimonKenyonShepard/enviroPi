@@ -14,4 +14,4 @@ let reset_sensor = () => {
   i2c1.writeI2cBlockSync(SLAVE,RESET_REG,4,reset_buffer)
 }
 
-reset_sensor()
+reset_sensor();

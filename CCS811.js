@@ -30,7 +30,7 @@ function CCS811(){
   //print eCO2  TVOC and time in console and a log file
   this.print_data = function(console_print,log_file){
     let header = '========================\n';
-    let time = 'Time:'+ new Date().getHours() + ' ' + new Date().getMinutes() + ' ' + new Date().getSeconds() + '\n';
+    let time = 'Time:'+ new Date().now() + '\n';
     let eCO2 = 'eCO2: ' + this.eCO2 + '\n';
     let TVOC = 'TVOC: ' + this.TVOC + '\n';
     let status = 'status: ' + this.status + '\n';

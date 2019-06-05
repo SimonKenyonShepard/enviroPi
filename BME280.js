@@ -167,8 +167,8 @@ class BME280 {
 
         resolve({
           temperature_C : temperature_C,
-          humidity      : humidity,
-          pressure_hPa  : pressure_hPa
+          humidity      : Math.round(humidity),
+          pressure_hPa  : Math.round(pressure_hPa)
         });
       });
     });
