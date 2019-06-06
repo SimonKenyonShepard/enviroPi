@@ -44,7 +44,7 @@ function CCS811(){
 
   //return eCO2 TVOC and time
   this.get_data = function(){
-    let time = new Date().getHours() + ' ' + new Date().getMinutes() + ' ' + new Date().getSeconds(),
+    let time = Math.floor(Date.now() / 1000),
         eCO2 = this.eCO2,
         TVOC = this.TVOC,
         data = {time,eCO2,TVOC}
