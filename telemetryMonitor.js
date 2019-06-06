@@ -1,6 +1,6 @@
 'use strict';
  
-const JsonBinClient = require('./CCS811.js'),
+const JsonBinClient = require('./JsonBinClient.js'),
 
 const telemetryStoreTimeout = 5000;
 
