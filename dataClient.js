@@ -1,7 +1,7 @@
 'use strict';
 
 const request = require('request');
-const server = "http://localhost";
+const server = "http://localhost:5000";
 
 const getData = (id) => {
   return new Promise((resolve, reject) => {
