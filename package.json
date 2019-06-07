@@ -1,20 +1,20 @@
 {
-  "name": "ccs811onlynode",
+  "name": "enviroPi",
   "version": "1.0.0",
-  "description": "Node application - CCS811 Raspberry Pi for reading eCO2 and TVOC",
+  "description": "A nodeJS implementation to collect the telemetry from a Sparkfun Environment Combo breakout CCS811/BME280 reading eCO2, TVOC, pressure, temperature and humidy",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimonKenyonShepard/enviroPi.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Georgian Stan",
+  "author": "Simon Kenyon Shepard",
   "license": "ISC",
   "dependencies": {
-    "azure-iot-device-amqp": "^1.9.9",
-    "azure-iothub": "^1.9.9",
+    "body-parser": "^1.19.0",
     "express": "^4.16.2",
-    "express-handlebars": "^3.0.0",
-    "i2c-bus": "^1.2.4",
-    "request": "^2.88.0",
-    "socket.io": "^2.0.4"
+    "i2c-bus": "^1.2.4"
   }
 }

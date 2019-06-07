@@ -1,7 +1,8 @@
 const I2cBus = require('i2c-bus'),
       CCS811 = require('./CCS811.js'),
       BME280 = require('./BME280.js'),
-      TelemetryMonitor = require ('./telemetryMonitor.js');
+      TelemetryMonitor = require ('./telemetryMonitor.js'),
+      dataServer = require('./server.js')();
 
 let i2c1 = I2cBus.openSync(1);
 
@@ -55,3 +56,4 @@ sensorCCS811.set_driver_mode(1); //set driver mode to one second(1) or ten secon
     }
   })
   .catch((err) => console.error(`BME280 initialization failed: ${err} `));
+

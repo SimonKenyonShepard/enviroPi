@@ -1,6 +1,6 @@
 'use strict';
  
-const JsonBinClient = require('./JsonBinClient.js');
+const dataClient = require('./dataClient.js');
 
 const telemetryStoreTimeout = 5000;
 
@@ -13,9 +13,8 @@ exports = module.exports = function(sensorCCS811, sensorBME280){
           sensorCCS811.read_data();
           let sensor_data = sensorCCS811.get_data();
           let combinedData = Object.assign({}, data, sensor_data);
-          console.log(data, sensor_data);
           console.log("Telemetry sent: " + JSON.stringify(combinedData));
-          JsonBinClient.appendJsonBin('5cf8c37825ffcf4ba635e18d', combinedData);
+          dataClient.appendToEndpoint('a74e06387e0a810f68bebd409211c17fc632f4715e9ef40245e60dfaed16ffad', combinedData);
 
         })
         .catch((err) => {
