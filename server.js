@@ -15,18 +15,18 @@ exports = module.exports = function(){
     app.use(bodyParser.json({limit: '50mb'}));
     app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
-    app.get('/sensor/:id/data/', function (req, res) {
+    app.get('/sensor/:id/data/', function (req, res, next) {
       fs.readFile(fileName, 'utf8', function(err, contents) {
         try {
           res.json(JSON.parse(contents));
         } catch (e) {
-          res.send(e);
+          next(err);
         }
         
       });
     });
 
-    app.put('/sensor/:id/data/', function (req, res) {
+    app.put('/sensor/:id/data/', function (req, res, next) {
 
       try {
         var data = JSON.stringify(req.body);
@@ -39,7 +39,7 @@ exports = module.exports = function(){
           }
         });
       } catch (e) {
-        res.send(e);
+        next(e);
       }      
     });
 
