@@ -10,7 +10,10 @@ const app = express(),
 
 exports = module.exports = function(){
 
-    app.use(bodyParser.json());
+    app.use(bodyParser({
+      json: {limit: '20mb', extended: true},
+      urlencoded: {limit: '20mb', extended: true}
+    }));
 
     app.get('/sensor/:id/data/', function (req, res) {
       fs.readFile(fileName, 'utf8', function(err, contents) {
