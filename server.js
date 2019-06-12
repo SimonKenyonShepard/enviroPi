@@ -17,23 +17,30 @@ exports = module.exports = function(){
 
     app.get('/sensor/:id/data/', function (req, res) {
       fs.readFile(fileName, 'utf8', function(err, contents) {
-        res.json(JSON.parse(contents));
+        try {
+          res.json(JSON.parse(contents));
+        } catch (e) {
+          res.send(e);
+        }
+        
       });
     });
 
     app.put('/sensor/:id/data/', function (req, res) {
 
-      var data = req.body;
-        
-      fs.writeFile(fileName, JSON.stringify(data), 'utf8', function(error){
-        var contents = "successfully stored";
-        if(error) {
-          contents = "write failed";
-        } else {
-          res.send(contents);
-        }
-      });
-      
+      try {
+        var data = JSON.stringify(req.body);
+        fs.writeFile(fileName, data, 'utf8', function(error){
+          var contents = "successfully stored";
+          if(error) {
+            contents = "write failed";
+          } else {
+            res.send(contents);
+          }
+        });
+      } catch (e) {
+        res.send(e);
+      }      
     });
 
     app.listen(port, () => console.log(`Data API listening on port ${port}`))
