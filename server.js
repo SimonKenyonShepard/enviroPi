@@ -2,7 +2,8 @@
  
 const express = require('express'),
       fs = require('fs'),
-      bodyParser = require('body-parser');
+      bodyParser = require('body-parser'),
+      cors = require('cors');
 
 const app = express(),
       port = 5000,
@@ -10,6 +11,7 @@ const app = express(),
 
 exports = module.exports = function(){
 
+    app.use(cors());
     app.use(bodyParser.json({limit: '50mb'}));
     app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
