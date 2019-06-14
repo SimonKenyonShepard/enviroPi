@@ -29,7 +29,7 @@ exports = module.exports = function(){
 
     app.post('/sensor/:id/data/', function (req, res, next) {
       try {
-        var payloadData = JSON.stringify(req.body);
+        var payloadData = req.body;
         fs.readFile(fileName, 'utf8', function(err, contents) {
             var newData = JSON.parse(contents);
             newData.push(payloadData);
