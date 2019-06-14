@@ -65,6 +65,6 @@ exports = module.exports = function(){
     });
 
     app.listen(port, () => console.log(`Data API listening on port ${port}`))
-}();
+};
 
 
