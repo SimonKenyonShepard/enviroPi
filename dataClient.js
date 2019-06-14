@@ -18,7 +18,22 @@ const putData = (id, data) => {
   });
 }
 
+const postData = (id, data) => {
+  return new Promise((resolve, reject) => {
+    request({ url: `${server}/sensor/${id}/data`, method: 'POST', json: data}, resolve).on('error', reject)
+  });
+}
+
 const appendToEndpoint = (id, dataPoint) => {
+  return new Promise(function(resolve, reject) {
+
+    postData(id, dataPoint)
+      .then(response => resolve(response));
+
+  });
+}
+
+const retrieveAndAppendToEndpoint = (id, dataPoint) => {
   return new Promise(function(resolve, reject) {
     getData(id)
       .then(response => {
