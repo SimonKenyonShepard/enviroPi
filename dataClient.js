@@ -5,7 +5,7 @@ const server = "http://localhost:5000";
 
 const getData = (id) => {
   return new Promise((resolve, reject) => {
-    request(`${server}/sensor/${id}/data`, function (error, response, body) {
+    request(`${server}/sensor/${id}/data/today`, function (error, response, body) {
       if(error) reject(error)
       resolve(JSON.parse(body));
     });
@@ -14,13 +14,13 @@ const getData = (id) => {
 
 const putData = (id, data) => {
   return new Promise((resolve, reject) => {
-    request({ url: `${server}/sensor/${id}/data`, method: 'PUT', json: data}, resolve).on('error', reject)
+    request({ url: `${server}/sensor/${id}/data/today`, method: 'PUT', json: data}, resolve).on('error', reject)
   });
 }
 
 const postData = (id, data) => {
   return new Promise((resolve, reject) => {
-    request({ url: `${server}/sensor/${id}/data`, method: 'POST', json: data}, resolve).on('error', reject)
+    request({ url: `${server}/sensor/${id}/data/today`, method: 'POST', json: data}, resolve).on('error', reject)
   });
 }
 
