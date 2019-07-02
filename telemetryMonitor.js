@@ -2,7 +2,7 @@
  
 const dataClient = require('./dataClient.js');
 
-const telemetryStoreTimeout = 5000;
+const telemetryStoreTimeout = 30000;
 
 exports = module.exports = function(sensorCCS811, sensorBME280){
 
